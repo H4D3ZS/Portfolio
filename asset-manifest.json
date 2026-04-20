@@ -1,0 +1,31 @@
+{
+  "files": {
+    "main.css": "/Portfolio/static/css/main.23883dd6.css",
+    "main.js": "/Portfolio/static/js/main.6b67fb5b.js",
+    "static/media/about-page-img.png": "/Portfolio/static/media/about-page-img.c8a4601c5b75950239cd.png",
+    "static/media/about-sec-img.png": "/Portfolio/static/media/about-sec-img.e7ef78810f9e765f342a.png",
+    "static/media/proessayhelp.png": "/Portfolio/static/media/proessayhelp.751df242249a2c9d9ac5.png",
+    "static/media/zool.png": "/Portfolio/static/media/zool.4f0add85819489b66d70.png",
+    "static/media/paps.png": "/Portfolio/static/media/paps.750bdb5bb446b165d11e.png",
+    "static/media/aptofa.png": "/Portfolio/static/media/aptofa.65c0efbd957fde1a5b71.png",
+    "static/media/Montserrat-Bold.ttf": "/Portfolio/static/media/Montserrat-Bold.079ca05d3ded9bc107ab.ttf",
+    "static/media/Montserrat-SemiBold.ttf": "/Portfolio/static/media/Montserrat-SemiBold.fa8441f345d83a0bc4ec.ttf",
+    "static/media/moba.png": "/Portfolio/static/media/moba.c810019c30e52f310a9e.png",
+    "static/media/paytrixx.png": "/Portfolio/static/media/paytrixx.6ba4c96d0e46087eb4dc.png",
+    "static/media/map.png": "/Portfolio/static/media/map.7d98ba39122259f555f4.png",
+    "static/media/surigao.jpg": "/Portfolio/static/media/surigao.a2e3a0378a66da778d96.jpg",
+    "static/media/hero.png": "/Portfolio/static/media/hero.b4b83a6ce16c771a9151.png",
+    "static/media/RobotoMono-Regular.ttf": "/Portfolio/static/media/RobotoMono-Regular.418a8f9f65ccad0918af.ttf",
+    "static/media/tapme.png": "/Portfolio/static/media/tapme.3b925f5b3fa7a2bb601e.png",
+    "static/media/projectImg.png": "/Portfolio/static/media/projectImg.771236e1a97e2201a189.png",
+    "index.html": "/Portfolio/index.html",
+    "static/media/scroll-down-arrow.svg": "/Portfolio/static/media/scroll-down-arrow.b013ca458cf827f32732e3ce3c691d03.svg",
+    "static/media/social-media-arrow.svg": "/Portfolio/static/media/social-media-arrow.f5e093ceb316785e72dc77d75e5ed04f.svg",
+    "main.23883dd6.css.map": "/Portfolio/static/css/main.23883dd6.css.map",
+    "main.6b67fb5b.js.map": "/Portfolio/static/js/main.6b67fb5b.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.23883dd6.css",
+    "static/js/main.6b67fb5b.js"
+  ]
+}
