@@ -6,284 +6,240 @@ interface AboutProps {
 }
 
 export default function About({ onNext }: AboutProps) {
-  const [expandedProf, setExpandedProf] = useState<number | null>(null)
-  const [expandedProj, setExpandedProj] = useState<number | null>(null)
+  const [expandedIndex, setExpandedIndex] = useState<number | null>(0)
 
   const professionalExperience = [
     {
       year: "APR 2025 — MAR 2026",
-      role: "iOS SOFTWARE DEVELOPER at Dance Vision",
+      role: "iOS SOFTWARE DEVELOPER",
+      company: "Dance Vision",
       details: [
-        "Engineered Dance Vision iOS app using Swift/SwiftUI with Firebase authentication and real-time analytics",
-        "Integrated PostgreSQL backend via REST APIs for seamless syllabus synchronization and optimized data flow",
-        "Optimized cross-platform synchronization between Flutter modules and native iOS components",
+        "Engineered Dance Vision iOS app using Swift/SwiftUI with Firebase authentication and real-time analytics.",
+        "Integrated PostgreSQL backend via REST APIs for syllabus synchronization and data caching.",
+        "Optimized cross-platform synchronization between Flutter modules and native iOS components."
       ],
-      technologies: ["Swift", "SwiftUI", "Firebase", "PostgreSQL", "REST APIs", "Flutter"],
+      technologies: ["Swift", "SwiftUI", "Firebase", "PostgreSQL", "REST APIs", "Flutter"]
     },
     {
       year: "MAR 2026 — PRESENT",
-      role: "PYTORCH PHILIPPINES AMBASSADOR at PyTorch Foundation",
+      role: "PYTORCH PHILIPPINES AMBASSADOR",
+      company: "PyTorch Foundation",
       details: [
-        "Represent PyTorch in the Philippines developer community",
-        "Conduct workshops and training sessions on deep learning best practices",
-        "Contribute to open-source PyTorch projects and documentation",
-        "Bridge the gap between Meta AI and local AI research communities",
+        "Represent PyTorch in the regional developer community.",
+        "Conduct workshops and technical sessions on deep learning optimization and edge deployments.",
+        "Bridge local researchers with open-source Meta AI projects and developer teams."
       ],
-      technologies: ["PyTorch", "Python", "Deep Learning", "AI Education"],
+      technologies: ["PyTorch", "Python", "Deep Learning", "AI Education"]
     },
     {
       year: "DEC 2021 — JAN 2025",
-      role: "SR. WEB3 BLOCKCHAIN DEVELOPER at Success Academy Learning Solutions LLC",
+      role: "SR. WEB3 BLOCKCHAIN DEVELOPER",
+      company: "Success Academy Learning Solutions LLC",
       details: [
-        "Architected Solidity smart contracts and Solana API integrations for NFT-based learning platforms",
-        "Developed NFT games using Unreal Engine and Unity3D with React Native bridges for mobile wallet integration",
-        "Led security audits for Web3 applications to prevent reentrancy and overflow vulnerabilities",
+        "Architected Solidity smart contracts and Solana API integrations for NFT-based learning platforms.",
+        "Developed Web3 components and integrated Unreal/Unity games with native React Native mobile wallets.",
+        "Led security audits of high-volume contracts to prevent reentrancy and integer overflow attacks."
       ],
-      technologies: ["Solidity", "Solana", "Unreal Engine", "Unity3D", "React Native", "Web3"],
+      technologies: ["Solidity", "Solana", "Unreal Engine", "Unity3D", "React Native", "Web3"]
     },
     {
       year: "OCT 2020 — OCT 2021",
-      role: "SOFTWARE ENGINEER at URCLASSROOM COMMUNITY CORP",
+      role: "SOFTWARE ENGINEER",
+      company: "URCLASSROOM COMMUNITY CORP",
       details: [
-        "Built native Android applications using Java/Android Studio and cross-platform solutions with Flutter/Dart",
-        "Integrated real-time collaboration features with Firebase to support large-scale concurrent user bases",
+        "Built native Android applications using Java/Android Studio and cross-platform apps with Flutter/Dart.",
+        "Integrated real-time database synchronization features using Firebase for concurrent classroom participants."
       ],
-      technologies: ["Java", "Android Studio", "Flutter", "Dart", "Firebase"],
+      technologies: ["Java", "Android Studio", "Flutter", "Dart", "Firebase"]
     },
     {
       year: "FEB 2020 — JUN 2020",
-      role: "ETHICAL HACKER at BOXTYPD TECHNOLOGIES",
+      role: "ETHICAL HACKER",
+      company: "BOXTYPD TECHNOLOGIES",
       details: [
-        "Conducted penetration testing on web and mobile applications",
-        "Identified and remediated critical vulnerabilities through exploit development",
-        "Delivered security re-stabilization reports and prioritized remediation roadmaps",
+        "Conducted pen-testing on critical Web3 web and mobile properties.",
+        "Developed exploit scripts to test memory vulnerabilities in low-level applications.",
+        "Delivered audited remediation roadmaps and patch reports for secure stabilization."
       ],
-      technologies: ["Penetration Testing", "Exploit Development", "Security Auditing"],
-    },
-    {
-      year: "DEC 2019 — APR 2020",
-      role: "CHIEF TECHNOLOGY OFFICER at Paytrixx",
-      details: [
-        "Directed development and stabilization of business-critical applications",
-        "Managed huge, complex design projects",
-        "Audited organizational security posture and maintained CI/CD security gates",
-      ],
-      technologies: ["Leadership", "Security", "CI/CD", "Project Management"],
-    },
+      technologies: ["Penetration Testing", "Exploit Development", "Security Auditing"]
+    }
   ]
 
-  const personalProjects = [
+  const skillsData = [
     {
-      year: "MAR 2026 — PRESENT",
-      role: "LEAD ARCHITECT - PROJECT HADES | Independent Research",
-      details: [
-        "Engineering a sub-1GB Linux 7.0 kernel substrate optimized for autonomous edge systems",
-        "Implementing eBPF 'Reflex Arc' for real-time decision routing",
-        "Designing 10MB Neural VFS (.aim) for weight-based knowledge distillation",
-        "Achieving <50ms inference latency for on-device model adaptation",
-        "Implementing formal verification protocols using Z3 for safety constraints",
-      ],
-      technologies: ["Linux Kernel", "eBPF", "Rust", "C", "Z3", "Neural VFS"],
+      category: "Languages",
+      skills: ['Rust', 'C++', 'Swift', 'Dart', 'Java', 'Solidity', 'Python', 'SQL']
     },
     {
-      year: "MAR 2026 — PRESENT",
-      role: "FOUNDER & LEAD DEVELOPER - ACHERON EMULATOR (Open Core)",
-      details: [
-        "Architecting iOS virtualization framework using Swift and Apple Virtualization.framework",
-        "Targeting 99%+ boot stability on iOS 26.3.1 test builds",
-        "Developing community research tool in Flutter for cross-platform AI model testing",
-        "Building acheron-cli for firmware patching and boot-chain analysis",
-        "Achieving 40% emulation overhead reduction versus QEMU baseline",
-      ],
-      technologies: ["Swift", "Apple Virtualization.framework", "Flutter", "C++", "QEMU"],
+      category: "AI/ML Infrastructure",
+      skills: ['PyTorch', 'ROCm 6.1+', 'Ollama', 'Z3', 'Neural VFS', 'Edge AI', 'Transformers']
     },
     {
-      year: "MAR 2026 — PRESENT",
-      role: "XNU KERNEL VULNERABILITY RESEARCH",
-      details: [
-        "Researching XNU kernel vulnerabilities for iOS security",
-        "Analyzing kernel-level exploit mechanisms",
-        "Developing proof-of-concept exploits for security research",
-      ],
-      technologies: ["XNU", "iOS Security", "Kernel Exploits", "Reverse Engineering"],
+      category: "Systems & Security",
+      skills: ['Linux Kernel', 'eBPF', 'QEMU', 'Apple Virtualization', 'XNU Kernel', 'Pen-Testing']
     },
     {
-      year: "MAR 2026",
-      role: "CYBER-IFRIT | GitLab AI & AMD Developer Hackathon",
-      details: [
-        "Built 'The Shadow Auditor' - autonomous security agent using PyTorch for anomaly detection",
-        "Integrated ROCm 6.1+ acceleration for AMD GPU-based threat analysis on MI300X",
-        "Enabled real-time scanning of 10K+ code commits per hour",
-        "Automated proof-of-concept exploit generation using GitLab Duo and Google Cloud",
-      ],
-      technologies: ["PyTorch", "ROCm 6.1+", "AMD MI300X", "GitLab Duo", "Security"],
-    },
+      category: "Frameworks & Apps",
+      skills: ['Flutter', 'SwiftUI', 'React Native', 'React.js', 'Laravel', 'Unity3D', 'Firebase']
+    }
   ]
 
   return (
-    <div className="about">
-      <div className="about-container">
-        {/* Left Content */}
+    <div className="section-wrapper">
+      {/* Intro Profile Grid */}
+      <div className="about-pane-grid mb-16">
+        {/* Left Side: Summary */}
         <motion.div
           initial={{ opacity: 0, x: -30 }}
-          animate={{ opacity: 1, x: 0 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
           transition={{ duration: 0.8 }}
         >
-          <p className="about-intro">Hi, I am Rolando H Ferrer Jr</p>
-          <h2 className="about-title">AI Systems Engineer & Fullstack Developer</h2>
-          <p className="about-description">
-            General Santos City, South Cotabato | +63-976-127-0346
+          <div className="inline-flex items-center gap-2 mb-4">
+            <div className="status-badge-2055">
+              <span className="status-dot-2055" />
+              BIOGRAPHY MATRIX
+            </div>
+          </div>
+
+          <h2 className="font-display text-3xl md:text-4xl font-bold mb-4 text-white">
+            Systems & Full-stack Architect
+          </h2>
+
+          <p className="font-tech text-xs text-[var(--nebula-magenta)] font-bold mb-6 uppercase tracking-wider">
+            General Santos City, South Cotabato | ferrer.rolando2001@gmail.com
           </p>
-          <p className="about-description" style={{ marginTop: '20px' }}>
-            AI Infrastructure Engineer transitioning from full-stack and Web3 development into autonomous systems, kernel-level optimization, and edge AI deployment.
+
+          <p className="text-gray-300 text-sm md:text-base leading-relaxed mb-6">
+            Hi, I'm Rolando. I specialize in bridging low-level kernel infrastructure, autonomous edge AI, and high-performance cross-platform applications. My workflow centers on performance optimization, secure cryptography, and memory safety.
           </p>
-          <div className="about-buttons">
-            <button onClick={onNext} className="hero-btn" style={{ background: 'var(--bg-card)' }}>
-              Works
+          
+          <p className="text-gray-300 text-sm md:text-base leading-relaxed mb-8">
+            As a PyTorch Philippines Ambassador, I advocate for local AI ecosystems and on-device model architectures, aiming for data sovereignty and latency reduction.
+          </p>
+
+          <div className="flex flex-wrap gap-4">
+            <button onClick={onNext} className="btn-2055 btn-2055-primary">
+              Launch Projects
             </button>
-            <a href="mailto:ferrer.rolando2001@gmail.com" className="hero-btn" style={{ background: 'transparent' }}>
-              Contact Me
+            <a href="mailto:ferrer.rolando2001@gmail.com" className="btn-2055 btn-2055-secondary">
+              Contact Matrix
             </a>
           </div>
         </motion.div>
 
-        {/* Right Image */}
+        {/* Right Side: Virtual Profile Render */}
         <motion.div
-          className="about-image-container"
           initial={{ opacity: 0, x: 30 }}
-          animate={{ opacity: 1, x: 0 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
           transition={{ duration: 0.8 }}
+          className="flex justify-center"
         >
-          <img 
-            src="/media/about-sec-img.e7ef78810f9e765f342a.png" 
-            alt="Profile" 
-            className="about-image"
-          />
+          <div className="holo-panel p-3 max-w-[420px] w-full" style={{ border: '1px solid rgba(185,131,255,0.15)' }}>
+            <div className="overflow-hidden rounded-xl border border-gray-800">
+              <img 
+                src="media/about-sec-img.e7ef78810f9e765f342a.png" 
+                alt="Profile Matrix" 
+                className="w-full h-auto object-cover filter grayscale hover:grayscale-0 transition-all duration-500" 
+              />
+            </div>
+            <div className="pt-4 px-2 pb-2 text-center">
+              <div className="font-tech text-[10px] text-gray-500 tracking-wider">BIOLOGICAL ID: ROLANDO_FERRER_JR</div>
+            </div>
+          </div>
         </motion.div>
       </div>
 
-      {/* Skills Section */}
-      <div className="skills">
-        <div className="skills-grid">
-          <div className="skill-category">Languages</div>
-          <div className="skill-tags">
-            {['Rust', 'C++', 'Swift', 'Dart', 'Java', 'Solidity', 'Python', 'SQL'].map((skill) => (
-              <span key={skill} className="skill-tag">{skill}</span>
-            ))}
-          </div>
+      {/* Skills Matrix Category Show */}
+      <div className="mb-16">
+        <div className="text-center mb-8">
+          <div className="status-badge-2055 mb-2">TECHNICAL INDEX</div>
+          <h3 className="font-display text-2xl md:text-3xl font-bold text-white">SKILL CLUSTERS</h3>
         </div>
 
-        <div className="skills-grid">
-          <div className="skill-category">AI/ML Infrastructure</div>
-          <div className="skill-tags">
-            {['PyTorch', 'ROCm 6.1+', 'Ollama', 'Z3', 'Neural VFS', 'Edge AI', 'Knowledge Distillation'].map((skill) => (
-              <span key={skill} className="skill-tag">{skill}</span>
-            ))}
-          </div>
-        </div>
-
-        <div className="skills-grid">
-          <div className="skill-category">Systems & Security</div>
-          <div className="skill-tags">
-            {['Linux Kernel', 'eBPF', 'QEMU', 'Apple Virtualization.framework', 'XNU', 'Penetration Testing', 'Smart Contract Auditing'].map((skill) => (
-              <span key={skill} className="skill-tag">{skill}</span>
-            ))}
-          </div>
-        </div>
-
-        <div className="skills-grid">
-          <div className="skill-category">Frameworks</div>
-          <div className="skill-tags">
-            {['Flutter', 'SwiftUI', 'React Native', 'Laravel', 'Unreal Engine', 'Unity3D', 'Firebase'].map((skill) => (
-              <span key={skill} className="skill-tag">{skill}</span>
-            ))}
-          </div>
-        </div>
-      </div>
-
-      {/* Professional Experience Section */}
-      <div className="experience-section">
-        <h3 className="experience-title">PROFESSIONAL EXPERIENCE</h3>
-        
-        <div className="experiences-list">
-          {professionalExperience.map((exp, i) => (
+        <div className="cyber-grid-4">
+          {skillsData.map((cluster, i) => (
             <motion.div
-              key={i}
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: i * 0.05 }}
-              className="experience-item-expanded"
-              onClick={() => setExpandedProf(expandedProf === i ? null : i)}
+              key={cluster.category}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: i * 0.1 }}
+              className="skills-cluster-card"
             >
-              <div className="experience-content">
-                <div className="experience-year">{exp.year}</div>
-                <div className="experience-role">{exp.role}</div>
-                {expandedProf === i && (
-                  <motion.div
-                    initial={{ opacity: 0, height: 0 }}
-                    animate={{ opacity: 1, height: 'auto' }}
-                    className="experience-details"
+              <h4 className="skills-cluster-title">
+                {cluster.category}
+              </h4>
+              <div className="tags-flex-container">
+                {cluster.skills.map((skill) => (
+                  <span 
+                    key={skill} 
+                    className="skill-tag-cyber"
                   >
-                    <ul>
-                      {exp.details.map((detail, j) => (
-                        <li key={j}>{detail}</li>
-                      ))}
-                    </ul>
-                    <div className="experience-tech">
-                      {exp.technologies.map((tech, j) => (
-                        <span key={j} className="tech-tag">{tech}</span>
-                      ))}
-                    </div>
-                  </motion.div>
-                )}
-                <div className="expand-hint">
-                  {expandedProf === i ? '▲ Click to collapse' : '▼ Click to expand'}
-                </div>
+                    {skill}
+                  </span>
+                ))}
               </div>
             </motion.div>
           ))}
         </div>
       </div>
 
-      {/* Personal Projects Section */}
-      <div className="experience-section" style={{ paddingTop: '40px' }}>
-        <h3 className="experience-title">PERSONAL PROJECTS & RESEARCH</h3>
-        
-        <div className="experiences-list">
-          {personalProjects.map((exp, i) => (
+      {/* Accordion Professional Experience */}
+      <div>
+        <div className="text-center mb-8">
+          <div className="status-badge-2055 mb-2">TEMPORAL REGISTRY</div>
+          <h3 className="font-display text-2xl md:text-3xl font-bold text-white">WORK HISTORY</h3>
+        </div>
+
+        <div className="accordion-container max-w-4xl mx-auto w-full">
+          {professionalExperience.map((exp, i) => (
             <motion.div
               key={i}
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: i * 0.05 }}
-              className="experience-item-expanded"
-              onClick={() => setExpandedProj(expandedProj === i ? null : i)}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4 }}
+              className={`accordion-item ${expandedIndex === i ? 'active' : ''}`}
             >
-              <div className="experience-content">
-                <div className="experience-year">{exp.year}</div>
-                <div className="experience-role">{exp.role}</div>
-                {expandedProj === i && (
-                  <motion.div
-                    initial={{ opacity: 0, height: 0 }}
-                    animate={{ opacity: 1, height: 'auto' }}
-                    className="experience-details"
-                  >
-                    <ul>
-                      {exp.details.map((detail, j) => (
-                        <li key={j}>{detail}</li>
-                      ))}
-                    </ul>
-                    <div className="experience-tech">
-                      {exp.technologies.map((tech, j) => (
-                        <span key={j} className="tech-tag">{tech}</span>
-                      ))}
-                    </div>
-                  </motion.div>
-                )}
-                <div className="expand-hint">
-                  {expandedProj === i ? '▲ Click to collapse' : '▼ Click to expand'}
+              <div 
+                className="accordion-header"
+                onClick={() => setExpandedIndex(expandedIndex === i ? null : i)}
+              >
+                <div className="flex flex-col md:flex-row md:items-center gap-2 md:gap-4">
+                  <span className="font-tech text-[10px] text-gray-500 tracking-wider min-w-[150px]">{exp.year}</span>
+                  <span className="accordion-header-title text-sm">{exp.role} @ {exp.company}</span>
                 </div>
+                <span className="accordion-icon font-tech text-[9px] bg-[rgba(0,245,255,0.06)] px-2.5 py-1 rounded border border-[rgba(0,245,255,0.15)] text-[var(--nebula-cyan)] select-none">
+                  {expandedIndex === i ? '[ COLLAPSE - ]' : '[ EXPAND + ]'}
+                </span>
               </div>
+
+              {expandedIndex === i && (
+                <motion.div 
+                  initial={{ opacity: 0, height: 0 }}
+                  animate={{ opacity: 1, height: 'auto' }}
+                  className="accordion-body"
+                >
+                  <ul className="space-y-3 mb-5 pl-2">
+                    {exp.details.map((detail, j) => (
+                      <li key={j} className="flex items-start gap-2.5 text-xs md:text-sm text-gray-300">
+                        <span className="text-[var(--nebula-cyan)] mt-0.5">&gt;</span>
+                        <span>{detail}</span>
+                      </li>
+                    ))}
+                  </ul>
+
+                  <div className="tags-flex-container pt-3 border-t border-[rgba(255,255,255,0.03)]">
+                    {exp.technologies.map((tech) => (
+                      <span key={tech} className="tag text-[10px] font-tech">
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+                </motion.div>
+              )}
             </motion.div>
           ))}
         </div>
